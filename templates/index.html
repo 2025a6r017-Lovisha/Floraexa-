@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floraexa - Plant Disease Detector</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f7f0;
+            color: #24452c;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        .container {
+            max-width: 550px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #00000015;
+        }
+
+        h1 {
+            color: #26733b;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 25px auto;
+            max-width: 100%;
+        }
+
+        button {
+            background: #26733b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #195629;
+        }
+
+        #preview {
+            display: none;
+            max-width: 250px;
+            max-height: 250px;
+            margin: 20px auto;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌿 Floraexa</h1>
+        <h2>Plant Identifier & Disease Detector</h2>
+
+        <p>Upload a clear image of a plant leaf.</p>
+
+        <form action="/predict" method="post"
+              enctype="multipart/form-data">
+
+            <input type="file" name="file"
+                   accept="image/*" required
+                   onchange="previewImage(event)">
+
+            <img id="preview" alt="Selected plant image preview">
+
+            <button type="submit">Analyze Image</button>
+        </form>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            const preview = document.getElementById("preview");
+
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

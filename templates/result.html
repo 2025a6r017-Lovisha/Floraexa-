@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floraexa - Prediction Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f7f0;
+            color: #24452c;
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 5px 20px #00000015;
+        }
+
+        h1 {
+            color: #26733b;
+        }
+
+        .result {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        .disease {
+            font-size: 23px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .confidence {
+            font-size: 17px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #26733b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🌿 Floraexa</h1>
+        <h2>Plant Analysis Result</h2>
+
+        <div class="result">
+            <p>Predicted Disease / Class:</p>
+            <div class="disease">{{ disease }}</div>
+
+            <p class="confidence">
+                Confidence: {{ confidence }}%
+            </p>
+        </div>
+
+        <a href="/">Analyze Another Plant</a>
+    </div>
+</body>
+</html>
